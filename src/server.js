@@ -3,8 +3,8 @@ var path = require("path");
 var bodyParser = require("body-parser");
 
 var enableHotReload = require("./hot-reload");
-var exemploController = require("./controllers/exemplo");
-var produtoController = require("./controllers/produto");
+
+var loginController = require("./controllers/LoginController")
 
 const app = express();
 
@@ -24,10 +24,8 @@ app.use(express.static(path.join(__dirname, "public")));
 enableHotReload(app);
 
 // Rotas
-app.get("/", exemploController.mostrarTelaDeExemplo);
+app.get("/", loginController.exibirPaginaLogin);
 
-app.get("/produto", produtoController.mostrarTela);
-app.post("/adicionar-produto", produtoController.adicionarProduto);
 
 // Inicie o servidor
 const port = 3000;
